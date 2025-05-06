@@ -100,15 +100,34 @@ const App = {
             // Update the game's gold amount
             if (App.petDefinition) {
                 App.petDefinition.stats.gold = amount;
-                // Notify React Native if needed
-                if (window.ReactNativeWebView) {
-                    window.ReactNativeWebView.postMessage(JSON.stringify({
-                        type: 'updateGold',
-                        amount: amount
-                    }));
-                }
+                // Update all gold displays in the game
+                App.updateAllGoldDisplays();
             }
         };
+
+        // Handle gold spending result from React Native
+        window.onGoldSpendResult = (success, newGoldAmount) => {
+            if (success) {
+                // Update the game's gold amount
+                if (App.petDefinition) {
+                    App.petDefinition.stats.gold = newGoldAmount;
+                    // Update all gold displays in the game
+                    App.updateAllGoldDisplays();
+                }
+            }
+            // Return the result to the original spending function
+            if (window.pendingGoldSpendCallback) {
+                window.pendingGoldSpendCallback(success);
+                window.pendingGoldSpendCallback = null;
+            }
+        };
+
+        // Request current gold from React Native
+        if (window.ReactNativeWebView) {
+            window.ReactNativeWebView.postMessage(JSON.stringify({
+                type: 'getGold'
+            }));
+        }
 
         // init
         this.initSound();
@@ -5853,6 +5872,48 @@ const App = {
                 interactingUserId: App.apiService._getUid(),
             });
             return App.apiService.sendRequest(params);
+        }
+    },
+    // Add this method to handle gold spending
+    async spendGold(amount) {
+        return new Promise((resolve) => {
+            if (window.ReactNativeWebView) {
+                // Store the callback to be called when we get the result
+                window.pendingGoldSpendCallback = resolve;
+                // Request to spend gold
+                window.ReactNativeWebView.postMessage(JSON.stringify({
+                    type: 'spendGold',
+                    amount: amount
+                }));
+            } else {
+                // If not in React Native, handle locally
+                if (App.petDefinition && App.petDefinition.stats.gold >= amount) {
+                    App.petDefinition.stats.gold -= amount;
+                    App.updateAllGoldDisplays();
+                    resolve(true);
+                } else {
+                    resolve(false);
+                }
+            }
+        });
+    },
+    // Add this method to update gold display in the game
+    updateAllGoldDisplays() {
+        // Update any gold displays in the game
+        const goldElements = document.querySelectorAll('.gold-display, .gold-circle, [data-gold-display]');
+        goldElements.forEach(element => {
+            if (App.petDefinition) {
+                if (element.classList.contains('gold-circle')) {
+                    element.textContent = `$${App.petDefinition.stats.gold}`;
+                } else {
+                    element.textContent = `Gold: ${App.petDefinition.stats.gold}`;
+                }
+            }
+        });
+
+        // If we're in a menu or screen that shows gold, update it
+        if (App.currentScreen && typeof App.currentScreen.updateGoldDisplay === 'function') {
+            App.currentScreen.updateGoldDisplay();
         }
     }
 }
