@@ -95,6 +95,21 @@ const App = {
         if(location.host.indexOf('itch') !== -1) App.isOnItch = true;
         if(navigator?.userAgent == 'electron-client') App.isOnElectronClient = true;
 
+        // Add React Native WebView communication
+        window.updateGold = (amount) => {
+            // Update the game's gold amount
+            if (App.petDefinition) {
+                App.petDefinition.stats.gold = amount;
+                // Notify React Native if needed
+                if (window.ReactNativeWebView) {
+                    window.ReactNativeWebView.postMessage(JSON.stringify({
+                        type: 'updateGold',
+                        amount: amount
+                    }));
+                }
+            }
+        };
+
         // init
         this.initSound();
         App.drawer = new Drawer(document.querySelector('.graphics-canvas'));
