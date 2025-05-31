@@ -5905,6 +5905,9 @@ const App = {
             if (App.petDefinition) {
                 if (element.classList.contains('gold-circle')) {
                     element.textContent = `$${App.petDefinition.stats.gold}`;
+                } else if (element.tagName === 'SPAN' && element.classList.contains('gold-display')) {
+                    // For span elements, just put the number (they're likely inside other text)
+                    element.textContent = App.petDefinition.stats.gold;
                 } else {
                     element.textContent = `Gold: ${App.petDefinition.stats.gold}`;
                 }
