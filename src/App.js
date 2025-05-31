@@ -97,30 +97,42 @@ const App = {
 
         // Add React Native WebView communication
         window.updateGold = (amount) => {
-            // Update the game's gold amount
+            console.log('🔄 updateGold called with amount:', amount);
+            // Update the game's gold amount in BOTH objects
             if (App.petDefinition) {
+                console.log('🔄 Updating petDefinition gold from', App.petDefinition.stats.gold, 'to', amount);
                 App.petDefinition.stats.gold = amount;
-                
-                // Update stats screen specifically if it's open
-                const statsGoldElement = document.querySelector('.gold-amount');
-                if (statsGoldElement) {
-                    statsGoldElement.textContent = amount;
-                }
-                
-                // Update all other gold displays in the game
-                App.updateAllGoldDisplays();
             }
+            if (App.pet) {
+                console.log('🔄 Updating pet gold from', App.pet.stats.gold, 'to', amount);
+                App.pet.stats.gold = amount;
+            }
+            
+            // Update stats screen specifically if it's open
+            const statsGoldElement = document.querySelector('.gold-amount');
+            if (statsGoldElement) {
+                statsGoldElement.textContent = amount;
+            }
+            
+            // Update all other gold displays in the game
+            App.updateAllGoldDisplays();
         };
 
         // Handle gold spending result from React Native
         window.onGoldSpendResult = (success, newGoldAmount) => {
+            console.log('🎯 onGoldSpendResult called:', { success, newGoldAmount });
             if (success) {
-                // Update the game's gold amount
+                // Update the game's gold amount in BOTH objects
                 if (App.petDefinition) {
+                    console.log('🔄 Confirming petDefinition gold to:', newGoldAmount);
                     App.petDefinition.stats.gold = newGoldAmount;
-                    // Update all gold displays in the game
-                    App.updateAllGoldDisplays();
                 }
+                if (App.pet) {
+                    console.log('🔄 Confirming pet gold to:', newGoldAmount);
+                    App.pet.stats.gold = newGoldAmount;
+                }
+                // Update all gold displays in the game
+                App.updateAllGoldDisplays();
             }
             // Return the result to the original spending function
             if (window.pendingGoldSpendCallback) {
@@ -5889,16 +5901,22 @@ const App = {
     },
     // Add a synchronous version for compatibility with existing code
     spendGoldSync(amount) {
-        console.log('spendGoldSync called with amount:', amount);
+        console.log('🎮 spendGoldSync called with amount:', amount);
+        console.log('🎮 window.ReactNativeWebView exists:', !!window.ReactNativeWebView);
+        console.log('🎮 App.petDefinition exists:', !!App.petDefinition);
+        console.log('🎮 App.pet exists:', !!App.pet);
+        console.log('🎮 Current gold in petDefinition:', App.petDefinition?.stats?.gold);
+        console.log('🎮 Current gold in pet:', App.pet?.stats?.gold);
         
-        // Check if we have enough gold first
-        if (App.petDefinition && App.petDefinition.stats.gold < amount) {
-            console.log('Not enough gold:', App.petDefinition.stats.gold, 'need:', amount);
+        // Check if we have enough gold first (check both objects to be safe)
+        const currentGold = (App.petDefinition && App.petDefinition.stats.gold) || (App.pet && App.pet.stats.gold) || 0;
+        if (currentGold < amount) {
+            console.log('❌ Not enough gold:', currentGold, 'need:', amount);
             return false;
         }
         
         if (window.ReactNativeWebView) {
-            console.log('Sending spendGold message to React Native');
+            console.log('📱 Sending spendGold message to React Native');
             // For React Native, send message for validation and sync
             window.ReactNativeWebView.postMessage(JSON.stringify({
                 type: 'spendGold',
@@ -5906,20 +5924,35 @@ const App = {
             }));
             
             // Optimistically update local gold for immediate UI feedback
+            // Update BOTH objects since the game uses both inconsistently
             if (App.petDefinition) {
+                const oldGold = App.petDefinition.stats.gold;
                 App.petDefinition.stats.gold -= amount;
-                App.updateAllGoldDisplays();
+                console.log('🎮 Optimistically updated petDefinition gold from', oldGold, 'to', App.petDefinition.stats.gold);
             }
+            if (App.pet) {
+                const oldGold = App.pet.stats.gold;
+                App.pet.stats.gold -= amount;
+                console.log('🎮 Optimistically updated pet gold from', oldGold, 'to', App.pet.stats.gold);
+            }
+            App.updateAllGoldDisplays();
             return true;
         } else {
-            console.log('Not in React Native, spending locally');
+            console.log('💻 Not in React Native, spending locally');
             // If not in React Native, handle locally
+            // Update BOTH objects since the game uses both inconsistently
             if (App.petDefinition) {
+                const oldGold = App.petDefinition.stats.gold;
                 App.petDefinition.stats.gold -= amount;
-                App.updateAllGoldDisplays();
-                return true;
+                console.log('🎮 Locally updated petDefinition gold from', oldGold, 'to', App.petDefinition.stats.gold);
             }
-            return false;
+            if (App.pet) {
+                const oldGold = App.pet.stats.gold;
+                App.pet.stats.gold -= amount;
+                console.log('🎮 Locally updated pet gold from', oldGold, 'to', App.pet.stats.gold);
+            }
+            App.updateAllGoldDisplays();
+            return true;
         }
     },
     // Add this method to update gold display in the game
