@@ -2913,11 +2913,10 @@ const App = {
                                 App.pet.stats.gold += price;
                                 App.addNumToObject(App.pet.inventory.food, food, -1);
                             } else { // buying
-                                if(App.pet.stats.gold < price){
+                                if(!App.spendGoldSync(price)) {
                                     App.displayPopup(`Don't have enough gold!`);
                                     return true;
                                 }
-                                App.pet.stats.gold -= price;
                                 App.addNumToObject(App.pet.inventory.food, food, 1);
                                 Missions.done(Missions.TYPES.buy_food);
                             }
@@ -3010,11 +3009,10 @@ const App = {
                     onclick: (btn, list) => {
                         // buy mode
                         if(buyMode){
-                            if(App.pet.stats.gold < price){
+                            if(!App.spendGoldSync(price)) {
                                 App.displayPopup(`Don't have enough gold!`);
                                 return true;
                             }
-                            App.pet.stats.gold -= price;
                             App.addNumToObject(App.pet.inventory.seeds, plant, 1);
                             let nList = App.handlers.open_seed_list(true, sliderInstance?.getCurrentIndex());
                             // Missions.done(Missions.TYPES.buy_food);
@@ -3034,8 +3032,6 @@ const App = {
                 App.displayPopup(`You don't have any seeds, purchase some from the market`, 2000);
                 return;
             }
-
-            if(buyMode) list.push(list.shift());
 
             sliderInstance = App.displaySlider(list, activeIndex, {accept: buyMode ? 'Purchase' : 'Plant'}, buyMode ? `$${App.pet.stats.gold + (salesDay ? ` <span class="sales-notice">DISCOUNT DAY!</span>` : '')}` : null);
             return sliderInstance;
@@ -3421,11 +3417,10 @@ const App = {
                     name: `${iconElement} ${item.toUpperCase()} (x${App.pet.inventory.item[item] || 0}) <b>${buyMode ? `$${price}` : ''}</b> ${current.isNew ? App.getBadge('new!') : ''}`,
                     onclick: (btn, list) => {
                         if(buyMode){
-                            if(App.pet.stats.gold < price){
+                            if(!App.spendGoldSync(price)) {
                                 App.displayPopup(`Don't have enough gold!`);
                                 return true;
                             }
-                            App.pet.stats.gold -= price;
                             App.addNumToObject(App.pet.inventory.item, item, 1);
                             // console.log(list.scrollTop);
                             let nList = App.handlers.open_item_list(true, sliderInstance?.getCurrentIndex());
@@ -3592,11 +3587,10 @@ const App = {
                             return true;
                         }
 
-                        if(App.pet.stats.gold < price){
+                        if(!App.spendGoldSync(price)) {
                             App.displayPopup(`Don't have enough gold!`);
                             return true;
                         }
-                        App.pet.stats.gold -= price;
 
                         App.closeAllDisplays();
                         Activities.redecorRoom();
@@ -3686,11 +3680,10 @@ const App = {
                                 App.displayPopup('You already own this accessory');
                                 return true;
                             }
-                            if(App.pet.stats.gold < price){
+                            if(!App.spendGoldSync(price)) {
                                 App.displayPopup(`Don't have enough gold!`);
                                 return true;
                             }
-                            App.pet.stats.gold -= price;
                             App.pet.inventory.accessory[accessoryName] = true;
                             //     // nList.scrollTop = list.scrollTop;
                             return reopen(buyMode);
@@ -3764,11 +3757,10 @@ const App = {
                     onclick: (btn, list) => {
                         if(owned) return App.displayPopup(`You already own the this furniture!`);
 
-                        if(App.pet.stats.gold < price){
+                        if(!App.spendGoldSync(price)) {
                             App.displayPopup(`Don't have enough gold!`);
                             return true;
                         }
-                        App.pet.stats.gold -= price;
 
                         App.ownedFurniture.push({
                             id: current.id,
@@ -4302,11 +4294,7 @@ const App = {
                             {
                                 name: `yes ($${price})`,
                                 onclick: () => {
-                                    if(App.pet.stats.gold - price < 0) {
-                                        App.displayPopup(`You don't have enough gold!`);
-                                        return;
-                                    }
-                                    App.pet.stats.gold -= price;
+                                    if(!App.pay(price)) return;
                                     goToVacation(Activities.seaVacation)
                                     App.sendAnalytics('go_on_vacation');
                                     App.definitions.achievements.go_to_vacation_x_times.advance();
@@ -5684,12 +5672,7 @@ const App = {
         else obj[key] += amount;
     },
     pay: function(amount){
-        if(App.pet.stats.gold < amount){
-            App.displayPopup(`Don't have enough gold!`);
-            return false;
-        }
-        App.pet.stats.gold -= amount;
-        return true;
+        return App.spendGoldSync(amount);
     },
     useWebcam: function(callback, facingMode, shutterDelay){
         if(!facingMode) facingMode = 'environment';
@@ -5906,24 +5889,32 @@ const App = {
     },
     // Add a synchronous version for compatibility with existing code
     spendGoldSync(amount) {
+        console.log('spendGoldSync called with amount:', amount);
+        
+        // Check if we have enough gold first
+        if (App.petDefinition && App.petDefinition.stats.gold < amount) {
+            console.log('Not enough gold:', App.petDefinition.stats.gold, 'need:', amount);
+            return false;
+        }
+        
         if (window.ReactNativeWebView) {
-            // For React Native, send message and assume success for UI responsiveness
-            // The actual validation will happen in React Native
+            console.log('Sending spendGold message to React Native');
+            // For React Native, send message for validation and sync
             window.ReactNativeWebView.postMessage(JSON.stringify({
                 type: 'spendGold',
                 amount: amount
             }));
             
             // Optimistically update local gold for immediate UI feedback
-            if (App.petDefinition && App.petDefinition.stats.gold >= amount) {
+            if (App.petDefinition) {
                 App.petDefinition.stats.gold -= amount;
                 App.updateAllGoldDisplays();
-                return true;
             }
-            return false;
+            return true;
         } else {
+            console.log('Not in React Native, spending locally');
             // If not in React Native, handle locally
-            if (App.petDefinition && App.petDefinition.stats.gold >= amount) {
+            if (App.petDefinition) {
                 App.petDefinition.stats.gold -= amount;
                 App.updateAllGoldDisplays();
                 return true;
