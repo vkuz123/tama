@@ -5881,7 +5881,7 @@ const App = {
             return App.apiService.sendRequest(params);
         }
     },
-    // Add this method to handle gold spending
+    // Update the spendGold method to handle both sync and async cases
     async spendGold(amount) {
         return new Promise((resolve) => {
             if (window.ReactNativeWebView) {
@@ -5903,6 +5903,33 @@ const App = {
                 }
             }
         });
+    },
+    // Add a synchronous version for compatibility with existing code
+    spendGoldSync(amount) {
+        if (window.ReactNativeWebView) {
+            // For React Native, send message and assume success for UI responsiveness
+            // The actual validation will happen in React Native
+            window.ReactNativeWebView.postMessage(JSON.stringify({
+                type: 'spendGold',
+                amount: amount
+            }));
+            
+            // Optimistically update local gold for immediate UI feedback
+            if (App.petDefinition && App.petDefinition.stats.gold >= amount) {
+                App.petDefinition.stats.gold -= amount;
+                App.updateAllGoldDisplays();
+                return true;
+            }
+            return false;
+        } else {
+            // If not in React Native, handle locally
+            if (App.petDefinition && App.petDefinition.stats.gold >= amount) {
+                App.petDefinition.stats.gold -= amount;
+                App.updateAllGoldDisplays();
+                return true;
+            }
+            return false;
+        }
     },
     // Add this method to update gold display in the game
     updateAllGoldDisplays() {
