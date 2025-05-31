@@ -100,7 +100,14 @@ const App = {
             // Update the game's gold amount
             if (App.petDefinition) {
                 App.petDefinition.stats.gold = amount;
-                // Update all gold displays in the game
+                
+                // Update stats screen specifically if it's open
+                const statsGoldElement = document.querySelector('.gold-amount');
+                if (statsGoldElement) {
+                    statsGoldElement.textContent = amount;
+                }
+                
+                // Update all other gold displays in the game
                 App.updateAllGoldDisplays();
             }
         };
@@ -5899,26 +5906,17 @@ const App = {
     },
     // Add this method to update gold display in the game
     updateAllGoldDisplays() {
-        // Update any gold displays in the game
-        const goldElements = document.querySelectorAll('.gold-display, .gold-circle, .gold-amount, [data-gold-display]');
-        console.log('Found gold elements:', goldElements.length);
-        goldElements.forEach((element, index) => {
-            console.log(`Element ${index}:`, element.tagName, element.className, element.textContent);
+        // Update any gold displays in the game (excluding gold-amount which is handled specifically)
+        const goldElements = document.querySelectorAll('.gold-display, .gold-circle, [data-gold-display]');
+        goldElements.forEach((element) => {
             if (App.petDefinition) {
                 if (element.classList.contains('gold-circle')) {
                     element.textContent = `$${App.petDefinition.stats.gold}`;
-                    console.log(`Updated gold-circle to: $${App.petDefinition.stats.gold}`);
-                } else if (element.classList.contains('gold-amount')) {
-                    // For stats screen gold amount, just put the number
-                    element.textContent = App.petDefinition.stats.gold;
-                    console.log(`Updated gold-amount to: ${App.petDefinition.stats.gold}`);
                 } else if (element.tagName === 'SPAN' && element.classList.contains('gold-display')) {
                     // For span elements, just put the number (they're likely inside other text)
                     element.textContent = App.petDefinition.stats.gold;
-                    console.log(`Updated span to: ${App.petDefinition.stats.gold}`);
                 } else {
                     element.textContent = `Gold: ${App.petDefinition.stats.gold}`;
-                    console.log(`Updated other element to: Gold: ${App.petDefinition.stats.gold}`);
                 }
             }
         });
