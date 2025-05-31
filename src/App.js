@@ -148,6 +148,25 @@ const App = {
             }));
         }
 
+        // Add debug function for gold state
+        window.debugGoldState = () => {
+            console.log('🔍 DEBUG - petDefinition gold:', App.petDefinition?.stats?.gold);
+            console.log('🔍 DEBUG - pet gold:', App.pet?.stats?.gold);
+            if (window.ReactNativeWebView) {
+                window.ReactNativeWebView.postMessage(JSON.stringify({
+                    type: 'debugGold'
+                }));
+            }
+        };
+
+        // Add test spend function for debugging
+        window.testSpendGold = (amount = 10) => {
+            console.log('🧪 TEST - Attempting to spend', amount, 'gold');
+            const result = App.spendGoldSync(amount);
+            console.log('🧪 TEST - Spend result:', result);
+            setTimeout(() => window.debugGoldState(), 100);
+        };
+
         // init
         this.initSound();
         App.drawer = new Drawer(document.querySelector('.graphics-canvas'));
