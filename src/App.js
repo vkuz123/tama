@@ -5979,18 +5979,37 @@ const App = {
     },
     // Add this method to update gold display in the game
     updateAllGoldDisplays() {
-        // Update any gold displays in the game (excluding gold-amount which is handled specifically)
+        console.log('🔄 updateAllGoldDisplays called, updating to gold:', App.petDefinition?.stats?.gold || App.pet?.stats?.gold);
+        
+        const currentGold = App.petDefinition?.stats?.gold || App.pet?.stats?.gold || 0;
+        
+        // Update slider additional-text elements (the "$10" display in purchase menus)
+        const additionalTextElements = document.querySelectorAll('.additional-text');
+        additionalTextElements.forEach((element) => {
+            // Check if this element contains gold display (starts with $ and has a number)
+            if (element.innerHTML && (element.innerHTML.includes('$') || element.innerHTML.includes('gold'))) {
+                console.log('🔄 Updating slider gold display from:', element.innerHTML, 'to: $' + currentGold);
+                // Replace any existing $ amount with the new amount
+                element.innerHTML = element.innerHTML.replace(/\$\d+/, `$${currentGold}`);
+            }
+        });
+        
+        // Update stats screen gold display (.gold-amount)
+        const goldAmountElements = document.querySelectorAll('.gold-amount');
+        goldAmountElements.forEach((element) => {
+            console.log('🔄 Updating .gold-amount from:', element.textContent, 'to:', currentGold);
+            element.textContent = currentGold;
+        });
+        
+        // Update other generic gold displays
         const goldElements = document.querySelectorAll('.gold-display, .gold-circle, [data-gold-display]');
         goldElements.forEach((element) => {
-            if (App.petDefinition) {
-                if (element.classList.contains('gold-circle')) {
-                    element.textContent = `$${App.petDefinition.stats.gold}`;
-                } else if (element.tagName === 'SPAN' && element.classList.contains('gold-display')) {
-                    // For span elements, just put the number (they're likely inside other text)
-                    element.textContent = App.petDefinition.stats.gold;
-                } else {
-                    element.textContent = `Gold: ${App.petDefinition.stats.gold}`;
-                }
+            if (element.classList.contains('gold-circle')) {
+                element.textContent = `$${currentGold}`;
+            } else if (element.tagName === 'SPAN' && element.classList.contains('gold-display')) {
+                element.textContent = currentGold;
+            } else {
+                element.textContent = `Gold: ${currentGold}`;
             }
         });
 
@@ -5998,6 +6017,8 @@ const App = {
         if (App.currentScreen && typeof App.currentScreen.updateGoldDisplay === 'function') {
             App.currentScreen.updateGoldDisplay();
         }
+        
+        console.log('🔄 updateAllGoldDisplays completed');
     }
 }
 
