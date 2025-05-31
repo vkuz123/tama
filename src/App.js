@@ -133,6 +133,19 @@ const App = {
                 }
                 // Update all gold displays in the game
                 App.updateAllGoldDisplays();
+            } else {
+                console.log('❌ Gold spend was rejected by React Native');
+                // If spending failed, make sure our local gold state is correct
+                // React Native will send us the correct current amount
+                if (App.petDefinition) {
+                    console.log('🔄 Reverting petDefinition gold to:', newGoldAmount);
+                    App.petDefinition.stats.gold = newGoldAmount;
+                }
+                if (App.pet) {
+                    console.log('🔄 Reverting pet gold to:', newGoldAmount);
+                    App.pet.stats.gold = newGoldAmount;
+                }
+                App.updateAllGoldDisplays();
             }
             // Return the result to the original spending function
             if (window.pendingGoldSpendCallback) {
@@ -5942,19 +5955,9 @@ const App = {
                 amount: amount
             }));
             
-            // Optimistically update local gold for immediate UI feedback
-            // Update BOTH objects since the game uses both inconsistently
-            if (App.petDefinition) {
-                const oldGold = App.petDefinition.stats.gold;
-                App.petDefinition.stats.gold -= amount;
-                console.log('🎮 Optimistically updated petDefinition gold from', oldGold, 'to', App.petDefinition.stats.gold);
-            }
-            if (App.pet) {
-                const oldGold = App.pet.stats.gold;
-                App.pet.stats.gold -= amount;
-                console.log('🎮 Optimistically updated pet gold from', oldGold, 'to', App.pet.stats.gold);
-            }
-            App.updateAllGoldDisplays();
+            // DO NOT do optimistic updates here - wait for confirmation
+            // The React Native side will send back the correct amount
+            console.log('🎮 Waiting for React Native confirmation (no optimistic update)');
             return true;
         } else {
             console.log('💻 Not in React Native, spending locally');
