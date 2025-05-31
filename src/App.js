@@ -2666,7 +2666,7 @@ const App = {
             content.innerHTML = `
             <div class="inner-padding b-radius-10 m surface-stylized">
                 <div>
-                    <b>GOLD:</b> $${App.pet.stats.gold}
+                    <b>GOLD:</b> $<span class="gold-display">${App.pet.stats.gold}</span>
                 </div>
                 <div>
                     <b>HUNGER:</b> ${App.createProgressbar( App.pet.stats.current_hunger / App.pet.stats.max_hunger * 100 ).node.outerHTML}
