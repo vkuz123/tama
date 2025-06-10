@@ -1971,16 +1971,17 @@ const App = {
                     : '';
             }
             App.displayList([
-                {
-                    _mount: (me) => {
-                        me.innerHTML = `Missions ${getUnclaimedRewardsBadge()}`
-                    },
-                    name: '',
-                    onclick: () => {
-                        Missions.openMenu();
-                        return true;
-                    }
-                },
+                // REMOVED: Missions menu item (functionality preserved)
+                // {
+                //     _mount: (me) => {
+                //         me.innerHTML = `Missions ${getUnclaimedRewardsBadge()}`
+                //     },
+                //     name: '',
+                //     onclick: () => {
+                //         Missions.openMenu();
+                //         return true;
+                //     }
+                // },
                 {
                     name: `sleep ${App.isSleepHour() ? App.getBadge('<div style="margin-left: auto; padding: 2px"> <i class="fa-solid fa-moon"></i> <small>bedtime!</small> </div>', 'night') : ''}`,
                     onclick: () => {
@@ -4246,27 +4247,28 @@ const App = {
                         Activities.goToClinic();
                     }
                 },
-                {
-                    _disable: App.petDefinition.lifeStage < PetDefinition.LIFE_STAGE.adult,
-                    name: `work`,
-                    onclick: () => {
-                        App.displayList([
-                            {
-                                name: `stand work`,
-                                onclick: () => {
-                                    Activities.standWork();
-                                }
-                            },
-                            {
-                                name: 'office work',
-                                onclick: () => {
-                                    Activities.officeWork();
-                                }
-                            },
-                        ])
-                        return true;
-                    }
-                },
+                // REMOVED: Work menu item (functionality preserved)
+                // {
+                //     _disable: App.petDefinition.lifeStage < PetDefinition.LIFE_STAGE.adult,
+                //     name: `work`,
+                //     onclick: () => {
+                //         App.displayList([
+                //             {
+                //                 name: `stand work`,
+                //                 onclick: () => {
+                //                     Activities.standWork();
+                //                 }
+                //             },
+                //             {
+                //                 name: 'office work',
+                //                 onclick: () => {
+                //                     Activities.officeWork();
+                //                 }
+                //             },
+                //         ])
+                //         return true;
+                //     }
+                // },
                 // {
                 //     name: 'baby sitter',
                 //     onclick: () => {
