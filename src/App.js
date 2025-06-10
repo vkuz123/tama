@@ -3711,17 +3711,18 @@ const App = {
                         if("age" in current && !current.age?.includes(App.petDefinition.lifeStage)){
                             return App.displayPopup(`This item is not appropriate for ${App.petDefinition.name}'s age!`);
                         }
+                        
+                        // Check if user has the item before using
+                        if(App.pet.inventory.item[item] <= 0){
+                            return App.displayPopup(`You don't have any ${item} to use!`);
+                        }
+                        
+                        // Consume the item (reduce by 1)
+                        App.pet.inventory.item[item] -= 1;
+                        
                         Activities.useItem({...current, name: item});
 
-                        // let useditem = App.pet.feed(current.sprite, current.hunger_replenish, current.type);
-                        // if(useditem) {
-                        //     App.pet.inventory.item[item] -= 1;
-                        //     App.pet.stats.current_fun += current.fun_replenish;
-                        //     if(App.pet.hasMoodlet('healthy') && current.type === 'med')
-                        //         App.pet.stats.current_health = App.pet.stats.current_health * 0.6;
-                        //     else
-                        //         App.pet.stats.current_health += current.health_replenish;
-                        // }
+                        // Items are now consumable - they decrease by 1 when used
                     }
                 })
             }

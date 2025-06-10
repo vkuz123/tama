@@ -646,7 +646,7 @@ App.definitions = (() => {
             "rattle": {
                 sprite: 8,
                 fun_replenish: 15,
-                price: 50,
+                price: 25, // Reduced from 50 (50% off)
                 interaction_time: 8100,
                 age: [_ls.baby, _ls.child],
                 isNew: false,
@@ -654,7 +654,7 @@ App.definitions = (() => {
             "grimoire": {
                 sprite: 9,
                 fun_replenish: 12,
-                price: 200,
+                price: 100, // Reduced from 200 (50% off)
                 interaction_time: 8000,
                 interruptable: false,
                 isNew: false,
@@ -663,7 +663,7 @@ App.definitions = (() => {
             "bear": {
                 sprite: 10,
                 fun_replenish: 20,
-                price: 180,
+                price: 90, // Reduced from 180 (50% off)
                 interaction_time: 10000,
                 interruptable: true,
                 isNew: false,
@@ -671,7 +671,7 @@ App.definitions = (() => {
             "skate": {
                 sprite: 11,
                 fun_replenish: 25,
-                price: 250,
+                price: 125, // Reduced from 250 (50% off)
                 interaction_time: 30000,
                 interruptable: true,
                 isNew: false,
@@ -681,32 +681,32 @@ App.definitions = (() => {
             "foxy": {
                 sprite: 1,
                 fun_replenish: 15,
-                price: 50,
+                price: 25, // Reduced from 50 (50% off)
                 interaction_time: 12000,
                 interruptable: true,
             },
             "dumble": {
                 sprite: 2,
                 fun_replenish: 10,
-                price: 100,
+                price: 50, // Reduced from 100 (50% off)
                 age: [_ls.teen, _ls.adult],
             },
             "music player": {
                 sprite: 3,
                 fun_replenish: 15,
-                price: 65
+                price: 33 // Reduced from 65 (50% off, rounded up)
             },
             "ball": {
                 sprite: 4,
                 fun_replenish: 20,
-                price: 35,
+                price: 18, // Reduced from 35 (50% off, rounded up)
                 interaction_time: 100000,
                 interruptable: true,
             },
             "smartphone": {
                 sprite: 5,
                 fun_replenish: 30,
-                price: 350,
+                price: 175, // Reduced from 350 (50% off)
                 interaction_time: 100000,
                 interruptable: true,
                 age: [_ls.teen, _ls.adult, _ls.elder],
@@ -714,7 +714,7 @@ App.definitions = (() => {
             "magazine": {
                 sprite: 6,
                 fun_replenish: 10,
-                price: 20,
+                price: 10, // Reduced from 20 (50% off)
                 interaction_time: 60000,
                 interruptable: true,
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
@@ -722,7 +722,7 @@ App.definitions = (() => {
             "microphone": {
                 sprite: 7,
                 fun_replenish: 15,
-                price: 75,
+                price: 38, // Reduced from 75 (50% off, rounded up)
                 interaction_time: 60000,
                 interruptable: true,
             },
@@ -1786,39 +1786,39 @@ App.definitions = (() => {
             affirmations: [
                 [
                     "Breaking News: Local Hero Spreads Happiness with Every Step!",
-                    "Our sources confirm that someone very special (hint: it’s you!) is making the world a better place just by being themselves.",
+                    "Our sources confirm that someone very special (hint: it's you!) is making the world a better place just by being themselves.",
                 ],
                 [
                     "Forecast: Bright Days Ahead!",
                     "The future looks sunny and full of joy for our favorite reader! Keep smiling—good things are coming.",
                 ],
                 [
-                    "Exclusive Interview: Experts Agree - You’re Doing Great!",
-                    "According to experts, small steps lead to big success, and you’re right on track!",
+                    "Exclusive Interview: Experts Agree - You're Doing Great!",
+                    "According to experts, small steps lead to big success, and you're right on track!",
                 ],
                 [
-                    "Front Page Scoop: You’re Stronger Than You Think!",
+                    "Front Page Scoop: You're Stronger Than You Think!",
                     "Recent studies reveal that strength and courage shine brightly in our favorite reader. Keep going!",
                 ],
                 [
                     "Community Spotlight: Heart of Gold Found Right Here!",
-                    "In a heartwarming story, we’ve discovered a true gem (that’s you!) spreading kindness everywhere!",
+                    "In a heartwarming story, we've discovered a true gem (that's you!) spreading kindness everywhere!",
                 ],
                 [
                     "Public Notice: Bravery and Kindness Recognized!",
                     "Officials have recognized an extraordinary individual for their courage and kindness—congratulations to you!",
                 ],
                 [
-                    "Daily Boost: You’re the Reason Today is Special!",
+                    "Daily Boost: You're the Reason Today is Special!",
                     "Thanks to your warmth and cheer, today is officially better! Spread those good vibes!",
                 ],
                 [
                     "Good News Today: Happiness Found in Every Small Moment!",
-                    "Joy is all around, and it’s all thanks to our reader’s incredible attitude. Keep shining!",
+                    "Joy is all around, and it's all thanks to our reader's incredible attitude. Keep shining!",
                 ],
                 [
                     "You Heard it Here First: Your Journey is Full of Promise!",
-                    "With every step, you’re creating an amazing story. Stay tuned for more greatness!",
+                    "With every step, you're creating an amazing story. Stay tuned for more greatness!",
                 ],
                 [
                     "Breaking Headlines: Best Version of You Making Waves!",
@@ -1833,15 +1833,15 @@ App.definitions = (() => {
                     "Sources confirm that your hard work and self-belief are inspiring everyone around you!",
                 ],
                 [
-                    "Special Report: You’re the Star of Today’s Story!",
-                    "Our newsroom agrees—you’re doing incredible things and deserve the spotlight. Shine on!",
+                    "Special Report: You're the Star of Today's Story!",
+                    "Our newsroom agrees—you're doing incredible things and deserve the spotlight. Shine on!",
                 ],
                 [
                     "Public Announcement: You Make Every Day Better!",
                     "Official declarations state that your presence brightens even the dullest moments. Thank you for being you!",
                 ],
                 [
-                    "Extra! Extra! You’re Loved More Than Words Can Say!",
+                    "Extra! Extra! You're Loved More Than Words Can Say!",
                     "Breaking hearts in the best way, your compassion and care are unmatched. The world is lucky to have you!",
                 ],
                 [
@@ -1853,16 +1853,16 @@ App.definitions = (() => {
                     "Insiders predict that your dedication and effort will lead to amazing accomplishments. Stay on course!",
                 ],
                 [
-                    "Daily Highlight: You’re a True Inspiration!",
+                    "Daily Highlight: You're a True Inspiration!",
                     "Community leaders have nominated you as a shining example of resilience and hope. Congratulations!",
                 ],
                 [
-                    "Forecast: You’re Destined for Greatness!",
+                    "Forecast: You're Destined for Greatness!",
                     "The stars align, pointing to a future filled with happiness and success for you. Keep going!",
                 ],
                 [
-                    "Latest Buzz: You’re the Talk of the Town!",
-                    "Everyone’s raving about your kindness, courage, and charm. Keep making waves!",
+                    "Latest Buzz: You're the Talk of the Town!",
+                    "Everyone's raving about your kindness, courage, and charm. Keep making waves!",
                 ],
                 [
                     "Breaking News: A Bright Future Awaits You!",
@@ -1878,43 +1878,43 @@ App.definitions = (() => {
                 ],
                 [
                     "Headline Spotlight: Your Efforts Matter More Than You Realize!",
-                    "Even the smallest things you do make a difference. You’re creating ripples of kindness and hope everywhere you go.",
+                    "Even the smallest things you do make a difference. You're creating ripples of kindness and hope everywhere you go.",
                 ],
                 [
                     "Exclusive Feature: Your Strength is Quietly Changing the World!",
-                    "We see it—the way you keep moving forward, even when it’s hard. That strength is something to be proud of.",
+                    "We see it—the way you keep moving forward, even when it's hard. That strength is something to be proud of.",
                 ],
                 [
                     "Front Page Story: You Are Loved More Than You Know!",
-                    "Sometimes it’s easy to forget, but you are deeply valued and appreciated by those around you. Don’t ever doubt it.",
+                    "Sometimes it's easy to forget, but you are deeply valued and appreciated by those around you. Don't ever doubt it.",
                 ],
                 [
-                    "Breaking Update: You’re Learning and Growing Every Day!",
-                    "Every challenge you face is shaping you into someone even more incredible. Trust the process—you’re doing great.",
+                    "Breaking Update: You're Learning and Growing Every Day!",
+                    "Every challenge you face is shaping you into someone even more incredible. Trust the process—you're doing great.",
                 ],
                 [
                     "Special Report: Your Kind Heart Makes Life Better!",
                     "In a world that needs more love, your compassion is a gift that changes lives. Never underestimate its power.",
                 ],
                 [
-                    "Top Story: You’re So Much Stronger Than You Feel Right Now!",
-                    "It’s okay to have tough days, but remember—your resilience has carried you through so much already. Keep believing in yourself.",
+                    "Top Story: You're So Much Stronger Than You Feel Right Now!",
+                    "It's okay to have tough days, but remember—your resilience has carried you through so much already. Keep believing in yourself.",
                 ],
                 [
                     "Daily Reminder: You Deserve the Good Things Coming Your Way!",
-                    "The kindness you’ve shown and the love you’ve shared are coming back to you. Be ready to receive them—you’ve earned it.",
+                    "The kindness you've shown and the love you've shared are coming back to you. Be ready to receive them—you've earned it.",
                 ],
                 [
                     "Breaking Alert: Your Voice Matters and So Do You!",
-                    "The way you think, feel, and express yourself makes the world richer. Your presence is a gift that can’t be replaced.",
+                    "The way you think, feel, and express yourself makes the world richer. Your presence is a gift that can't be replaced.",
                 ],
                 [
-                    "Personal Feature: You’re Exactly Where You Need to Be!",
-                    "Life isn’t a race, and every step you take is part of your unique story. You’re on the right path—trust yourself.",
+                    "Personal Feature: You're Exactly Where You Need to Be!",
+                    "Life isn't a race, and every step you take is part of your unique story. You're on the right path—trust yourself.",
                 ],
                 [
                     "Headline Scoop: You Have a Light That Guides Others!",
-                    "Even when you don’t see it, your kindness and warmth inspire those around you. Keep shining—it’s beautiful.",
+                    "Even when you don't see it, your kindness and warmth inspire those around you. Keep shining—it's beautiful.",
                 ],
                 [
                     "Forecast: Healing and Happiness Are On the Horizon!",
@@ -1932,15 +1932,15 @@ App.definitions = (() => {
                 ],
                 [
                     "Weather Update: Slight Chance of Marshmallow Showers!",
-                    "Residents are advised to carry cocoa mugs just in case. Experts say it’ll be the sweetest storm of the season.",
+                    "Residents are advised to carry cocoa mugs just in case. Experts say it'll be the sweetest storm of the season.",
                 ],
                 [
                     "Community Spotlight: Mr. Whiskers Wins Pie-Eating Contest!",
-                    "In a record-breaking feat, Mr. Whiskers devoured 12 strawberry pies. 'I just couldn’t stop!' he shared, covered in crumbs.",
+                    "In a record-breaking feat, Mr. Whiskers devoured 12 strawberry pies. 'I just couldn't stop!' he shared, covered in crumbs.",
                 ],
                 [
                     "Exclusive: The Glowbugs Host a Nightly Light Show!",
-                    "Every evening this week, the glowbugs will illuminate the skies with dazzling patterns. Don’t forget to look up!",
+                    "Every evening this week, the glowbugs will illuminate the skies with dazzling patterns. Don't forget to look up!",
                 ],
                 [
                     "Breaking: A New Bakery Opens in Muffin Meadow!",
@@ -2000,23 +2000,23 @@ App.definitions = (() => {
                 ['Woooow!', 7, "resources/img/background/house/online_hub_01.png"],
                 ['#Hubchi', 2, "resources/img/background/house/online_hub_01.png"],
                 ['Played hide and seek with parents! #TinyGames', 2, "resources/img/background/house/parents_house_01.png"],
-                ['Leaf fell on me. Guess I’m a tree now! #TreeLife', 8, "resources/img/background/outside/park_02.png"],
+                ['Leaf fell on me. Guess I\'m a tree now! #TreeLife', 8, "resources/img/background/outside/park_02.png"],
                 ['#onthatgrind', 14, "resources/img/background/house/office_01.png"],
                 ['Market day! #shopping', 10, "resources/img/background/outside/market_01.png"],
                 ['Prices too high! #whatisthis', 7, "resources/img/background/outside/market_01.png"],
                 ['Looking for a cute #headband!', 8, "resources/img/background/outside/market_01.png"],
                 ['Lost again! Done with gaming. #hategaming', 6, "resources/img/background/house/arcade_01.png"],
-                ['I’m just better! #gaming', 2, "resources/img/background/house/arcade_01.png"],
+                ['I\'m just better! #gaming', 2, "resources/img/background/house/arcade_01.png"],
                 ['Won again! #ilovegaming', 2, "resources/img/background/house/arcade_01.png"],
                 ['Chasing rainbows today! #ColorChase', 1, "resources/img/background/outside/garden_01.png"],
                 ['Found a ladybug! So lucky. #LuckyDay', 2, null],
                 ['Tiny picnic in the grass. Life is good! #TinyPicnic', 8, "resources/img/background/outside/park_02.png"],
-                ['Jumping puddles! Let’s get wet. #PuddleJump', 10, "resources/img/background/sky/rain_01.png"],
-                ['The sky’s full of clouds. So dreamy. #CloudyDay', 1, "resources/img/background/sky/afternoon.png"],
+                ['Jumping puddles! Let\'s get wet. #PuddleJump', 10, "resources/img/background/sky/rain_01.png"],
+                ['The sky\'s full of clouds. So dreamy. #CloudyDay', 1, "resources/img/background/sky/afternoon.png"],
                 ['Met a squirrel today. Best friends now! #SquirrelSquad', 7, "resources/img/background/outside/park_02.png"],
                 ['Feeling a bit sick!', 4, "resources/img/background/outside/hospital_01.png"],
                 ['Checkout my stand!', 2, "resources/img/background/outside/stand_01.png"],
-                ['I’m a leaf warrior! #LeafBattle', 1, "resources/img/background/outside/park_02.png"],
+                ['I\'m a leaf warrior! #LeafBattle', 1, "resources/img/background/outside/park_02.png"],
                 ['Discovered a secret path in the woods. #MysteryTrail', 7, "resources/img/background/outside/park_02.png"],
                 ['Feeling like a cloud. Soft and fluffy. #CloudVibes', 8, "resources/img/background/sky/afternoon.png"]
             ]
