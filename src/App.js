@@ -4237,7 +4237,7 @@ const App = {
                     }
                 },
                 {
-                    name: 'park',
+                    name: 'park ($5 entry)',
                     onclick: () => { // going to park with random pet
                         Activities.goToPark();
                     }
@@ -4391,7 +4391,7 @@ const App = {
                             },
                             {
                                 _disable: App.petDefinition.lifeStage <= PetDefinition.LIFE_STAGE.baby,
-                                name: 'park',
+                                name: 'park ($5 entry)',
                                 onclick: () => {
                                     App.closeAllDisplays();
                                     Activities.goToPark(friendDef);

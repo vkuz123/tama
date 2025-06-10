@@ -2591,6 +2591,15 @@ class Activities {
         task_otherPetMoveIn();
     }
     static goToPark(otherPetDef){
+        // Check if player has enough gold for park entry ($5)
+        if(App.pet.stats.gold < 5){
+            App.displayPopup(`You need $5 to enter the park!`);
+            return;
+        }
+        
+        // Deduct $5 entry fee
+        App.pet.stats.gold -= 5;
+        
         if(!otherPetDef){
             if(random(1, 100) <= 60){
                 otherPetDef = App.getRandomPetDef(App.petDefinition.lifeStage);

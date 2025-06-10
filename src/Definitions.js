@@ -618,7 +618,7 @@ App.definitions = (() => {
                 sprite: 1036,
                 hunger_replenish: 50,
                 fun_replenish: 10,
-                price: 0, // makes it always available
+                price: 15, // Changed from 0 to make it consumable instead of infinite
                 age: [_ls.baby],
                 nonCraftable: true,
             },

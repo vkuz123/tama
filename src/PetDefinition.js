@@ -234,6 +234,7 @@ class PetDefinition {
             'lollipop': 3,
             'cupcake': 3,
             'medicine': 2,
+            'milk': 1,
         },
         item: { 'rattle': 1 },
         accessory: {},
