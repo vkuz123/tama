@@ -197,7 +197,7 @@ class PetDefinition {
         current_care: 1,
 
         // gold
-        gold: 15,
+        gold: 5,
 
         // other stats
         is_sleeping: false,
@@ -228,12 +228,7 @@ class PetDefinition {
     deceasedPredecessors = [];
     inventory = {
         food: {
-            'bread': 10,
-            'pizza': 2,
-            'paster': 2,
-            'lollipop': 3,
-            'cupcake': 3,
-            'medicine': 2,
+            'medicine': 1,
             'milk': 1,
         },
         item: { 'rattle': 1 },
