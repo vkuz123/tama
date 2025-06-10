@@ -49,6 +49,11 @@ customElements.define("c-sprite", SpriteElement);
 
 function handleServiceWorker(){
     const isOnItch = location.host.indexOf('itch') !== -1;
+    
+    // DISABLED: Override version check system - no automatic updates
+    console.log('Service Worker registration disabled - no automatic updates');
+    return;
+    
     if(!navigator?.serviceWorker || isOnItch) return;
     
     let shownControllerChangeModal = false;

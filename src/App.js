@@ -99,7 +99,7 @@ const App = {
     routes: {
         BLOG: 'https://tamawebgame.github.io/blog/',
         ITCH_REVIEW: 'https://samandev.itch.io/tamaweb/rate?source=game',
-        DISCORD: 'https://tamawebgame.github.io/discord',
+        DISCORD: 'https://discord.gg/Y9HGu8YT',
     },
     async init () {
         // window load events
@@ -917,28 +917,29 @@ const App = {
         //     ])
         // })) return;
 
-        if(addEvent(`update_16_notice`, () => {
-            App.displayList([
-                {
-                    name: 'New update is available!',
-                    type: 'text',
-                    solid: true,
-                    bold: true,
-                },
-                {
-                    name: `Check out the new Animal Pets, Revival mechanic, and more!`,
-                    type: 'text',
-                },
-                {
-                    link: App.routes.BLOG,
-                    name: 'see whats new',
-                    class: 'solid primary',
-                    onclick: () => {
-                        App.sendAnalytics('go_to_blog_whats_new');
-                    }
-                },
-            ])
-        }, false)) return;
+        // DISABLED: Update notification disabled - no automatic updates
+        // if(addEvent(`update_16_notice`, () => {
+        //     App.displayList([
+        //         {
+        //             name: 'New update is available!',
+        //             type: 'text',
+        //             solid: true,
+        //             bold: true,
+        //         },
+        //         {
+        //             name: `Check out the new Animal Pets, Revival mechanic, and more!`,
+        //             type: 'text',
+        //         },
+        //         {
+        //             link: App.routes.BLOG,
+        //             name: 'see whats new',
+        //             class: 'solid primary',
+        //             onclick: () => {
+        //                 App.sendAnalytics('go_to_blog_whats_new');
+        //             }
+        //         },
+        //     ])
+        // }, false)) return;
 
         if(addEvent('itch_rating_dialog', () => {
             App.handlers.show_rating_dialog();
@@ -2824,15 +2825,16 @@ const App = {
                     name: `<b>rate us!</b>`,
                     onclick: () => App.handlers.show_rating_dialog()
                 },
-                {
-                    // _ignore: true,
-                    link: App.routes.BLOG,
-                    name: `<b>see changelog</b>`,
-                    onclick: () => {
-                        App.sendAnalytics('go_to_blog');
-                        return true;
-                    },
-                },
+                // REMOVED: See changelog menu item (functionality preserved)
+                // {
+                //     // _ignore: true,
+                //     link: App.routes.BLOG,
+                //     name: `<b>see changelog</b>`,
+                //     onclick: () => {
+                //         App.sendAnalytics('go_to_blog');
+                //         return true;
+                //     },
+                // },
                 {
                     // _ignore: true,
                     link: App.routes.DISCORD,
@@ -4161,12 +4163,13 @@ const App = {
                         Activities.goToMarket();
                     }
                 },
-                {
-                    name: `game center`,
-                    onclick: () => {
-                        Activities.goToArcade();
-                    }
-                },
+                // REMOVED: Game center menu item (functionality preserved)
+                // {
+                //     name: `game center`,
+                //     onclick: () => {
+                //         Activities.goToArcade();
+                //     }
+                // },
                 {
                     _disable: App.petDefinition.lifeStage <= PetDefinition.LIFE_STAGE.child,
                     name: `<span class="ellipsis">Homeworld Getaways</span>`,
