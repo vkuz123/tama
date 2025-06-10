@@ -5054,6 +5054,11 @@ const App = {
             Battle.start();
         },
         shell_button: function(){
+            // PRE-RELEASE TESTING ONLY: Give 5 gold when any shell button is clicked
+            App.pet.stats.gold += 5;
+            App.displayPopup(`+5 gold (testing feature)`, 1000);
+            
+            // Original functionality preserved below
             if(App.disableGameplayControls && App.gameplayControlsOverwrite){
                 if(!App.haveAnyDisplays()){
                     App.gameplayControlsOverwrite();
