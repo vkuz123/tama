@@ -63,7 +63,7 @@ App.definitions = (() => {
                 hunger_replenish: 15,
                 fun_replenish: 0,
                 health_replenish: 2,
-                price: 2,
+                price: 1, // Reduced by 50%
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
             "pizza": {
@@ -71,7 +71,7 @@ App.definitions = (() => {
                 hunger_replenish: 40,
                 fun_replenish: 5,
                 health_replenish: -5,
-                price: 10,
+                price: 5, // Reduced by 50%
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
             "hamburger": {
@@ -79,7 +79,7 @@ App.definitions = (() => {
                 hunger_replenish: 40,
                 fun_replenish: 10,
                 health_replenish: -15,
-                price: 15,
+                price: 8, // Reduced by 50% (rounded up)
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
             "heart beef": {
@@ -87,7 +87,7 @@ App.definitions = (() => {
                 hunger_replenish: 30,
                 fun_replenish: 5,
                 health_replenish: -5,
-                price: 8,
+                price: 4, // Reduced by 50%
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
             "crab dish": {
@@ -95,7 +95,7 @@ App.definitions = (() => {
                 hunger_replenish: 50,
                 fun_replenish: 5,
                 health_replenish: 10,
-                price: 20,
+                price: 10, // Reduced by 50%
                 age: [_ls.adult, _ls.elder],
             },
             "paster": {
@@ -103,7 +103,7 @@ App.definitions = (() => {
                 hunger_replenish: 25,
                 fun_replenish: 0,
                 health_replenish: 0,
-                price: 10,
+                price: 5, // Reduced by 50%
                 age: [_ls.teen, _ls.adult, _ls.elder],
             },
             "king burger": {
@@ -111,7 +111,7 @@ App.definitions = (() => {
                 hunger_replenish: 100,
                 fun_replenish: 50,
                 health_replenish: -40,
-                price: 40,
+                price: 20, // Reduced by 50%
                 age: [_ls.adult, _ls.elder],
             },
             "sushi": {
@@ -119,7 +119,7 @@ App.definitions = (() => {
                 hunger_replenish: 15,
                 fun_replenish: 10,
                 health_replenish: 5,
-                price: 12,
+                price: 6, // Reduced by 50%
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
             "sushi set": {
@@ -127,7 +127,7 @@ App.definitions = (() => {
                 hunger_replenish: 40,
                 fun_replenish: 10,
                 health_replenish: 20,
-                price: 30,
+                price: 15, // Reduced by 50%
                 age: [_ls.adult, _ls.elder],
             },
             "sunny savory soup": {
@@ -135,7 +135,7 @@ App.definitions = (() => {
                 hunger_replenish: 25,
                 fun_replenish: 0,
                 health_replenish: 25,
-                price: 15,
+                price: 8, // Reduced by 50% (rounded up)
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
             "crabstew": {
@@ -143,7 +143,7 @@ App.definitions = (() => {
                 hunger_replenish: 25,
                 fun_replenish: 0,
                 health_replenish: 30,
-                price: 20,
+                price: 10, // Reduced by 50%
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
             "spicy dragon pot": {
@@ -151,7 +151,7 @@ App.definitions = (() => {
                 hunger_replenish: 30,
                 fun_replenish: 0,
                 health_replenish: 10,
-                price: 20,
+                price: 10, // Reduced by 50%
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
             "fish dish": {
@@ -159,7 +159,7 @@ App.definitions = (() => {
                 hunger_replenish: 35,
                 fun_replenish: 5,
                 health_replenish: 20,
-                price: 22,
+                price: 11, // Reduced by 50%
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
             "forest fungi stew": {
@@ -167,7 +167,7 @@ App.definitions = (() => {
                 hunger_replenish: 10,
                 fun_replenish: 0,
                 health_replenish: 20,
-                price: 7,
+                price: 4, // Reduced by 50% (rounded up)
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
             "star nuggies": {
@@ -175,7 +175,7 @@ App.definitions = (() => {
                 hunger_replenish: 15,
                 fun_replenish: 10,
                 health_replenish: 0,
-                price: 8,
+                price: 4, // Reduced by 50%
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
             "tacos": {
@@ -183,7 +183,7 @@ App.definitions = (() => {
                 hunger_replenish: 20,
                 fun_replenish: 5,
                 health_replenish: 0,
-                price: 10,
+                price: 5, // Reduced by 50%
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
             "sambooseh": {
@@ -191,7 +191,7 @@ App.definitions = (() => {
                 hunger_replenish: 10,
                 fun_replenish: 0,
                 health_replenish: 0,
-                price: 5,
+                price: 3, // Reduced by 50% (rounded up)
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
             "pie": {
@@ -199,7 +199,7 @@ App.definitions = (() => {
                 hunger_replenish: 15,
                 fun_replenish: 0,
                 health_replenish: 0,
-                price: 10,
+                price: 5, // Reduced by 50%
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
             "lasagna": {
@@ -207,7 +207,7 @@ App.definitions = (() => {
                 hunger_replenish: 20,
                 fun_replenish: 10,
                 health_replenish: -5,
-                price: 20,
+                price: 10, // Reduced by 50%
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
             "red bowol": {
@@ -215,7 +215,7 @@ App.definitions = (() => {
                 hunger_replenish: 30,
                 fun_replenish: 5,
                 health_replenish: 2,
-                price: 25,
+                price: 13, // Reduced by 50% (rounded up)
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
             "noodles": {
@@ -223,7 +223,7 @@ App.definitions = (() => {
                 hunger_replenish: 18,
                 fun_replenish: 2,
                 health_replenish: 0,
-                price: 15,
+                price: 8, // Reduced by 50% (rounded up)
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
             "drumstick": {
@@ -231,7 +231,7 @@ App.definitions = (() => {
                 hunger_replenish: 20,
                 fun_replenish: 2,
                 health_replenish: 4,
-                price: 10,
+                price: 5, // Reduced by 50%
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
             "veggiesoup": {
@@ -239,14 +239,14 @@ App.definitions = (() => {
                 hunger_replenish: 23,
                 fun_replenish: -15,
                 health_replenish: 10,
-                price: 12,
+                price: 6, // Reduced by 50%
             },
             "cheese n breakfast": {
                 sprite: 364,
                 hunger_replenish: 25,
                 fun_replenish: 5,
                 health_replenish: 10,
-                price: 13,
+                price: 7, // Reduced by 50% (rounded up)
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
             "breadrolls": {
@@ -254,7 +254,7 @@ App.definitions = (() => {
                 hunger_replenish: 20,
                 fun_replenish: 5,
                 health_replenish: 2,
-                price: 20,
+                price: 10, // Reduced by 50%
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
             "sweetbread": {
@@ -262,7 +262,7 @@ App.definitions = (() => {
                 hunger_replenish: 15,
                 fun_replenish: 0,
                 health_replenish: 10,
-                price: 10,
+                price: 5, // Reduced by 50%
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
             "meatballs": {
@@ -270,7 +270,7 @@ App.definitions = (() => {
                 hunger_replenish: 30,
                 fun_replenish: 0,
                 health_replenish: 0,
-                price: 15,
+                price: 8, // Reduced by 50% (rounded up)
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
             "xiao long bao": {
@@ -278,7 +278,7 @@ App.definitions = (() => {
                 hunger_replenish: 10,
                 fun_replenish: 0,
                 health_replenish: 5,
-                price: 7,
+                price: 4, // Reduced by 50% (rounded up)
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
             "spaghetti": {
@@ -286,7 +286,7 @@ App.definitions = (() => {
                 hunger_replenish: 30,
                 fun_replenish: 3,
                 health_replenish: 0,
-                price: 5,
+                price: 3, // Reduced by 50% (rounded up)
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
             "telesushi": {
@@ -294,7 +294,7 @@ App.definitions = (() => {
                 hunger_replenish: 45,
                 fun_replenish: 5,
                 health_replenish: 15,
-                price: 25,
+                price: 13, // Reduced by 50% (rounded up)
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
             "s-special dish": {
@@ -302,7 +302,7 @@ App.definitions = (() => {
                 hunger_replenish: 28,
                 fun_replenish: 0,
                 health_replenish: 10,
-                price: 20,
+                price: 10, // Reduced by 50%
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
             // cookable only
@@ -310,7 +310,7 @@ App.definitions = (() => {
                 sprite: 142,
                 hunger_replenish: 30,
                 sleep_replenish: 50,
-                price: 15,
+                price: 8, // Reduced by 50% (rounded up)
                 cookableOnly: true,
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
@@ -319,7 +319,7 @@ App.definitions = (() => {
                 hunger_replenish: 50,
                 fun_replenish: 5,
                 health_replenish: 15,
-                price: 15,
+                price: 8, // Reduced by 50% (rounded up)
                 cookableOnly: true,
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
@@ -327,7 +327,7 @@ App.definitions = (() => {
                 sprite: 175,
                 hunger_replenish: 20,
                 fun_replenish: 50,
-                price: 15,
+                price: 8, // Reduced by 50% (rounded up)
                 cookableOnly: true,
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
@@ -335,7 +335,7 @@ App.definitions = (() => {
                 sprite: 186,
                 hunger_replenish: 50,
                 health_replenish: 10,
-                price: 10,
+                price: 5, // Reduced by 50%
                 cookableOnly: true,
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
@@ -344,7 +344,7 @@ App.definitions = (() => {
                 hunger_replenish: 15,
                 health_replenish: 20,
                 sleep_replenish: 50,
-                price: 18,
+                price: 9, // Reduced by 50%
                 cookableOnly: true,
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
@@ -352,7 +352,7 @@ App.definitions = (() => {
                 sprite: 195,
                 hunger_replenish: 15,
                 health_replenish: 50,
-                price: 10,
+                price: 5, // Reduced by 50%
                 cookableOnly: true,
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
@@ -360,7 +360,7 @@ App.definitions = (() => {
                 sprite: 222,
                 hunger_replenish: 50,
                 health_replenish: 20,
-                price: 12,
+                price: 6, // Reduced by 50%
                 cookableOnly: true,
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
@@ -368,7 +368,7 @@ App.definitions = (() => {
                 sprite: 533,
                 hunger_replenish: 50,
                 health_replenish: 20,
-                price: 12,
+                price: 6, // Reduced by 50%
                 cookableOnly: true,
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
@@ -376,7 +376,7 @@ App.definitions = (() => {
                 sprite: 668,
                 hunger_replenish: 20,
                 fun_replenish: 50,
-                price: 12,
+                price: 6, // Reduced by 50%
                 cookableOnly: true,
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
@@ -384,14 +384,14 @@ App.definitions = (() => {
                 sprite: 536,
                 hunger_replenish: 50,
                 fun_replenish: 10,
-                price: 10,
+                price: 5, // Reduced by 50%
                 cookableOnly: true,
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
             "potato soup": {
                 sprite: 599,
                 hunger_replenish: 50,
-                price: 8,
+                price: 4, // Reduced by 50%
                 cookableOnly: true,
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
@@ -399,7 +399,7 @@ App.definitions = (() => {
                 sprite: 800,
                 hunger_replenish: 15,
                 sleep_replenish: 50,
-                price: 15,
+                price: 8, // Reduced by 50% (rounded up)
                 cookableOnly: true,
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
@@ -407,7 +407,7 @@ App.definitions = (() => {
                 sprite: 596,
                 hunger_replenish: 50,
                 fun_replenish: 5,
-                price: 12,
+                price: 6, // Reduced by 50%
                 cookableOnly: true,
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
@@ -415,7 +415,7 @@ App.definitions = (() => {
                 sprite: 276,
                 hunger_replenish: 15,
                 fun_replenish: 50,
-                price: 10,
+                price: 5, // Reduced by 50%
                 cookableOnly: true,
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
@@ -423,7 +423,7 @@ App.definitions = (() => {
                 sprite: 323,
                 hunger_replenish: 50,
                 health_replenish: 20,
-                price: 15,
+                price: 8, // Reduced by 50% (rounded up)
                 cookableOnly: true,
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
@@ -431,14 +431,14 @@ App.definitions = (() => {
                 sprite: 617,
                 hunger_replenish: 10,
                 sleep_replenish: 50,
-                price: 15,
+                price: 8, // Reduced by 50% (rounded up)
                 cookableOnly: true,
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
             "roasted sweet potatoes": {
                 sprite: 945,
                 hunger_replenish: 100,
-                price: 20,
+                price: 10, // Reduced by 50%
                 cookableOnly: true,
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
@@ -446,7 +446,7 @@ App.definitions = (() => {
                 sprite: 803,
                 hunger_replenish: 10,
                 fun_replenish: 80,
-                price: 20,
+                price: 10, // Reduced by 50%
                 cookableOnly: true,
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
             },
@@ -458,7 +458,7 @@ App.definitions = (() => {
                 hunger_replenish: 25,
                 fun_replenish: 5,
                 health_replenish: 5,
-                price: 8,
+                price: 4, // Reduced by 50%
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
                 type: 'treat',
             },
@@ -467,7 +467,7 @@ App.definitions = (() => {
                 hunger_replenish: 8,
                 fun_replenish: 20,
                 health_replenish: 0,
-                price: 10,
+                price: 5, // Reduced by 50%
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
                 type: 'treat',
             },
@@ -476,7 +476,7 @@ App.definitions = (() => {
                 hunger_replenish: 10,
                 fun_replenish: 8,
                 health_replenish: 0,
-                price: 8,
+                price: 4, // Reduced by 50%
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
                 type: 'treat',
             },
@@ -485,7 +485,7 @@ App.definitions = (() => {
                 hunger_replenish: 5,
                 fun_replenish: 35,
                 health_replenish: 0,
-                price: 5,
+                price: 3, // Reduced by 50% (rounded up)
                 type: 'treat',
             },
             "vanilla icecream": {
@@ -493,7 +493,7 @@ App.definitions = (() => {
                 hunger_replenish: 10,
                 fun_replenish: 30,
                 health_replenish: 0,
-                price: 10,
+                price: 5, // Reduced by 50%
                 type: 'treat',
             },
             "strawberry icecream": {
@@ -501,7 +501,7 @@ App.definitions = (() => {
                 hunger_replenish: 10,
                 fun_replenish: 30,
                 health_replenish: 0,
-                price: 10,
+                price: 5, // Reduced by 50%
                 type: 'treat',
             },
             "scoped icecream": {
@@ -509,7 +509,7 @@ App.definitions = (() => {
                 hunger_replenish: 15,
                 fun_replenish: 30,
                 health_replenish: 0,
-                price: 12,
+                price: 6, // Reduced by 50%
                 type: 'treat',
             },
             "snacks and bits": {
@@ -517,7 +517,7 @@ App.definitions = (() => {
                 hunger_replenish: 15,
                 fun_replenish: 20,
                 health_replenish: 0,
-                price: 15,
+                price: 8, // Reduced by 50% (rounded up)
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
                 type: 'treat',
             },
@@ -526,7 +526,7 @@ App.definitions = (() => {
                 hunger_replenish: 5,
                 fun_replenish: 25,
                 health_replenish: 0,
-                price: 10,
+                price: 5, // Reduced by 50%
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
                 type: 'treat',
             },
@@ -535,7 +535,7 @@ App.definitions = (() => {
                 hunger_replenish: 15,
                 fun_replenish: 30,
                 health_replenish: 0,
-                price: 10,
+                price: 5, // Reduced by 50%
                 type: 'treat',
             },
             "cappuccino": {
@@ -543,7 +543,7 @@ App.definitions = (() => {
                 hunger_replenish: 2,
                 fun_replenish: 25,
                 health_replenish: 0,
-                price: 7,
+                price: 4, // Reduced by 50% (rounded up)
                 age: [_ls.teen, _ls.adult, _ls.elder],
                 type: 'treat',
             },
@@ -552,7 +552,7 @@ App.definitions = (() => {
                 hunger_replenish: 10,
                 fun_replenish: 15,
                 health_replenish: 0,
-                price: 5,
+                price: 3, // Reduced by 50% (rounded up)
                 type: 'treat',
             },
             "choco cake slice": {
@@ -560,7 +560,7 @@ App.definitions = (() => {
                 hunger_replenish: 10,
                 fun_replenish: 10,
                 health_replenish: 0,
-                price: 5,
+                price: 3, // Reduced by 50% (rounded up)
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
                 type: 'treat',
             },
@@ -569,7 +569,7 @@ App.definitions = (() => {
                 hunger_replenish: 15,
                 fun_replenish: 25,
                 health_replenish: 0,
-                price: 12,
+                price: 6, // Reduced by 50%
                 type: 'treat',
             },
             "cream icepack": {
@@ -577,7 +577,7 @@ App.definitions = (() => {
                 hunger_replenish: 10,
                 fun_replenish: 25,
                 health_replenish: 0,
-                price: 10,
+                price: 5, // Reduced by 50%
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
                 type: 'treat',
             },
@@ -586,7 +586,7 @@ App.definitions = (() => {
                 hunger_replenish: 20,
                 fun_replenish: 30,
                 health_replenish: 0,
-                price: 14,
+                price: 7, // Reduced by 50%
                 type: 'treat',
             },
             "paloodeh": {
@@ -594,7 +594,7 @@ App.definitions = (() => {
                 hunger_replenish: 5,
                 fun_replenish: 25,
                 health_replenish: 0,
-                price: 8,
+                price: 4, // Reduced by 50%
                 age: [_ls.child, _ls.teen, _ls.adult, _ls.elder],
                 type: 'treat',
             },
@@ -618,7 +618,7 @@ App.definitions = (() => {
                 sprite: 1036,
                 hunger_replenish: 50,
                 fun_replenish: 10,
-                price: 15, // Changed from 0 to make it consumable instead of infinite
+                price: 8, // Reduced by 50% (rounded up)
                 age: [_ls.baby],
                 nonCraftable: true,
             },
@@ -627,7 +627,7 @@ App.definitions = (() => {
                 hunger_replenish: -25,
                 fun_replenish: -20,
                 sleep_replenish: 999,
-                price: 120,
+                price: 60, // Reduced by 50%
                 type: 'med',
                 isNew: false,
             },
@@ -636,7 +636,7 @@ App.definitions = (() => {
                 hunger_replenish: 0,
                 fun_replenish: -20,
                 health_replenish: 999,
-                price: 20,
+                price: 10, // Reduced by 50%
                 type: 'med',
             },
         },

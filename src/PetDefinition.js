@@ -148,32 +148,32 @@ class PetDefinition {
         max_hunger: 100,
         hunger_satisfaction: 85, // note: when reaching this they won't want anymore food
         hunger_min_desire: 40, // note: when below this number they desire it
-        hunger_depletion_rate: 0.0145,
-        activity_hunger_depletion: 0.5,
+        hunger_depletion_rate: 0.00725, // Reduced by 50%
+        activity_hunger_depletion: 0.25, // Reduced by 50%
         // sleep
         max_sleep: 100,
         sleep_satisfaction: 70,
         sleep_min_desire: 20,
-        sleep_depletion_rate: 0.0034,
+        sleep_depletion_rate: 0.0017, // Reduced by 50%
         sleep_replenish_rate: 0.1,
         light_sleepiness: 0.01,
-        activity_sleep_depletion: 0.3,
+        activity_sleep_depletion: 0.15, // Reduced by 50%
         // fun
         max_fun: 100,
         fun_min_desire: 35,
         fun_satisfaction: 70,
-        fun_depletion_rate: 0.0235,
+        fun_depletion_rate: 0.01175, // Reduced by 50%
         // bladder
         max_bladder: 100,
-        bladder_depletion_rate: 0.015,
+        bladder_depletion_rate: 0.0075, // Reduced by 50%
         // health
         max_health: 100,
         health_depletion_mult: 0.5, // from 0 to 1, 0 means immune to all health risks
-        health_depletion_rate: 0.0055,
+        health_depletion_rate: 0.00275, // Reduced by 50%
         // cleanliness
         max_cleanliness: 100,
         cleanliness_depletion_mult: 20,
-        cleanliness_depletion_rate: 0.0115,
+        cleanliness_depletion_rate: 0.00575, // Reduced by 50%
         // death ticker
         max_death_tick: 100, // ~ 54 hours
         baby_max_death_tick: 44, // ~ 24 hours

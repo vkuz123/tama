@@ -544,11 +544,11 @@ class Pet extends Object2d {
 
         let depletion_mult = 1, offlineAndIsNight = false;
         if(isOfflineProgression){
-            depletion_mult = 0.25;
+            depletion_mult = 0.1; // Improved from 0.25 for better away time tolerance
 
             if(App.isSleepHour()){
                 offlineAndIsNight = true;
-                depletion_mult = 0.05;
+                depletion_mult = 0.02; // Improved from 0.05 for better nighttime away tolerance
             }
         }
 
